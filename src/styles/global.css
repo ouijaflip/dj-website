@@ -35,7 +35,7 @@ body {
   margin: 0;
   padding: 0;
   text-align: left;
-  background: black
+  background: rgb(var(--black));
   background-size: 100% 600px;
   word-wrap: break-word;
   overflow-wrap: break-word;
