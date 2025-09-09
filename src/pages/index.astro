@@ -9,10 +9,21 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 <html lang="en">
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.home-main {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-start;
+				align-items: center;
+				font-family: "Oxygen", sans-serif;
+				font-style: italic;
+				color: rgba(191, 191, 255, 1);
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
-		<main>
+		<main class="home-main">
 			<h1>ZEPHYR EVENTS</h1>
 			<p>
                 Providing HIGH-END DJ and lighting services for the Pittsburgh area. 
