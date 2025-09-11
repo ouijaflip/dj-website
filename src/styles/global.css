@@ -35,8 +35,11 @@ body {
   margin: 0;
   padding: 0;
   text-align: left;
-  background: rgb(var(--black));
-  background-size: 100% 600px;
+  background: radial-gradient(1200px 800px at 10% -10%, rgba(35, 55, 255, 0.12), transparent 60%),
+              radial-gradient(1000px 700px at 110% 10%, rgba(255, 0, 128, 0.1), transparent 60%),
+              rgb(var(--black));
+  background-attachment: fixed;
+  background-size: cover;
   word-wrap: break-word;
   overflow-wrap: break-word;
   color: rgb(var(--gray-light));
@@ -83,6 +86,7 @@ a {
 }
 a:hover {
   color: var(--accent);
+  text-shadow: 0 0 8px rgba(35, 55, 255, 0.4);
 }
 p {
   margin-bottom: 1em;
@@ -125,7 +129,8 @@ blockquote {
 }
 hr {
   border: none;
-  border-top: 1px solid rgb(var(--gray-light));
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.02), 0 0 24px rgba(35, 55, 255, 0.2);
 }
 @media (max-width: 720px) {
   body {
@@ -134,6 +139,48 @@ hr {
   main {
     padding: 1em;
   }
+}
+
+/* Ambient neon aura */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(600px 400px at 80% 20%, rgba(35, 55, 255, 0.08), transparent 60%),
+              radial-gradient(500px 400px at 20% 80%, rgba(255, 0, 128, 0.08), transparent 60%);
+  filter: blur(20px);
+  animation: floatGlow 18s ease-in-out infinite alternate;
+  z-index: -1;
+}
+
+/* Utility surfaces */
+.glass-surface {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(var(--gray), 0.18);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 0 40px rgba(35, 55, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+}
+
+.glow-card {
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.05), 0 10px 30px rgba(0,0,0,0.35), 0 0 40px rgba(35, 55, 255, 0.1);
+  border-radius: 12px;
+}
+
+.button-neon {
+  position: relative;
+  border: 1px solid rgba(255,255,255,0.15);
+  box-shadow: 0 10px 24px rgba(35, 55, 255, 0.25), 0 0 24px rgba(35, 55, 255, 0.2) inset;
+}
+.button-neon:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 16px 36px rgba(35, 55, 255, 0.35), 0 0 30px rgba(35, 55, 255, 0.3) inset;
+}
+
+@keyframes floatGlow {
+  0% { transform: translate3d(0,0,0); opacity: 0.9; }
+  100% { transform: translate3d(0, -10px, 0); opacity: 1; }
 }
 
 .sr-only {
