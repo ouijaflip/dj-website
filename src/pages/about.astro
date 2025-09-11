@@ -4,21 +4,107 @@ import Layout from '../layouts/BlogPost.astro';
 
 <Layout
 	title="About"
-	description="Professional DJ and lighting for weddings, parties, and corporate events"
+	description="Modern wedding DJ + lighting for unforgettable celebrations"
 	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
-	headerNote="High-energy music + immersive lighting for unforgettable events"
+	headerNote="Modern wedding DJ + lighting"
 >
-	<p>
-		We provide premium DJ and lighting packages tailored to your venue and crowd. From ceremony audio
-		and cocktail vibes to an all-out dance floor, we handle the soundtrack and the look so you can
-		focus on your guests.
-	</p>
-	<p>
-		Our lighting rigs are fully programmable to match your aesthetic &mdash; uplighting, moving heads, and
-		customizable effects that elevate the atmosphere without overpowering it.
-	</p>
-	<p>
-		Ready to book? Visit the <a href="/bookings">Bookings</a> page for instant email options.
-	</p>
+	<section class="intro-section glow-card">
+		<h2 class="headline">Elevate your night.</h2>
+		<p class="tagline">Curated mixes, seamless hosting, and elegant lighting that turns moments into memories.</p>
+		<div class="highlights">
+			<div class="highlight glass-surface">
+				<h3>Signature Sound</h3>
+				<p>Custom playlists, live mixing, and pro-grade audio tuned to your space and crowd.</p>
+			</div>
+			<div class="highlight glass-surface">
+				<h3>Atmospheric Lighting</h3>
+				<p>Dynamic uplighting, tasteful effects, and room-wide ambiance that feels cinematic.</p>
+			</div>
+			<div class="highlight glass-surface">
+				<h3>White‑Glove Service</h3>
+				<p>Clear timelines, flawless cues, and vendor coordination so your night flows effortlessly.</p>
+			</div>
+		</div>
+	</section>
+
+	<section class="packages">
+		<h3 class="section-title">Popular Packages</h3>
+		<div class="package-grid">
+			<div class="package-card glass-surface">
+				<h4>Essentials</h4>
+				<ul>
+					<li>Ceremony + Reception coverage</li>
+					<li>Pro audio + wireless mics</li>
+					<li>Classic dancefloor lighting</li>
+				</ul>
+			</div>
+			<div class="package-card glass-surface featured">
+				<h4>Signature</h4>
+				<ul>
+					<li>Full-day coverage</li>
+					<li>Custom playlists + live mixing</li>
+					<li>Room uplighting + spotlighting</li>
+				</ul>
+			</div>
+			<div class="package-card glass-surface">
+				<h4>Grand</h4>
+				<ul>
+					<li>Extended coverage</li>
+					<li>Enhanced lighting design</li>
+					<li>Grand intros + special effects</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section class="why-us glow-card">
+		<h3 class="section-title">Why Couples Choose Us</h3>
+		<ul class="pill-list">
+			<li>Intentional music curation</li>
+			<li>Elegant, minimal footprint</li>
+			<li>Clear MC presence without clichés</li>
+			<li>On-time, on-cue, on-point</li>
+		</ul>
+	</section>
+
+	<div class="cta">
+		<a href="/bookings" class="cta-button button-neon">Check availability</a>
+	</div>
 </Layout>
+
+<style>
+	.headline {
+		font-size: 2.4rem;
+		margin: 0 0 .25rem 0;
+		background: linear-gradient(92deg, #8a2be2, var(--accent));
+		-webkit-background-clip: text;
+		background-clip: text;
+		color: transparent;
+		text-shadow: 0 0 24px rgba(35, 55, 255, 0.2);
+	}
+	.tagline { color: rgb(var(--gray)); margin: 0 0 1rem 0; }
+
+	.intro-section { padding: 1.25rem; }
+	.highlights { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin-top: 1rem; }
+	.highlight { padding: 1rem; }
+	.highlight h3 { margin: 0 0 .5rem 0; }
+
+	.packages { margin-top: 2rem; }
+	.section-title { margin: 0 0 .75rem 0; letter-spacing: .04em; text-transform: uppercase; color: rgb(var(--gray)); }
+	.package-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+	.package-card { padding: 1rem; }
+	.package-card ul { margin: .5rem 0 0 1.25rem; }
+	.package-card.featured { box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 0 40px rgba(35,55,255,0.18); }
+
+	.why-us { padding: 1.25rem; margin-top: 2rem; }
+	.pill-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+	.pill-list li { border: 1px solid rgba(var(--gray), .25); border-radius: 999px; padding: .4rem .7rem; background: rgba(255,255,255,.02); }
+
+	.cta { text-align: center; margin: 2rem 0 1rem 0; }
+	.cta-button { display: inline-block; padding: .8rem 1.2rem; border-radius: 10px; text-decoration: none; color: white; background: var(--accent); }
+
+	@media (max-width: 900px) {
+		.highlights { grid-template-columns: 1fr; }
+		.package-grid { grid-template-columns: 1fr; }
+	}
+</style>
