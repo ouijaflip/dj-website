@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="Bookings"
+	description="Book DJ and lighting services for your event"
+	pubDate={new Date('August 08 2021')}
+	heroImage="/blog-placeholder-about.jpg"
+	headerNote={<div>Reserve your date — fast response guaranteed</div>}
+>
+	<div class="contact-intro">
+		We make bookings simple. Choose Gmail or your default email app.
+	</div>
+	<div class="contact-actions">
+		<a
+			class="contact-button gmail"
+			href="https://mail.google.com/mail/?view=cm&to=djemail@gmail.com&su=Booking%20Inquiry&body=Hi%20Zephyr%2C%0A%0AEvent%20date%3A%20%0ALocation%3A%20%0APackage%3A%20DJ%20%2B%20Lighting%0A%0AAdditional%20details%3A%20"
+			target="_blank"
+			rel="noopener noreferrer"
+		>
+			Email via Gmail
+		</a>
+		<a
+			class="contact-button mailto"
+			href="mailto:djemail@gmail.com?subject=Booking%20Inquiry&body=Hi%20Zephyr%2C%0A%0AEvent%20date%3A%20%0ALocation%3A%20%0APackage%3A%20DJ%20%2B%20Lighting%0A%0AAdditional%20details%3A%20"
+		>
+			Open email app
+		</a>
+	</div>
+	<p class="contact-alt">Prefer phone? Call or text <strong>724-555-5555</strong>.</p>
+</Layout>
+
+<style>
+	.contact-intro {
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+	.contact-actions {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin: 1rem 0 2rem 0;
+	}
+	.contact-button {
+		display: inline-block;
+		padding: 0.75rem 1.25rem;
+		border-radius: 8px;
+		text-decoration: none;
+		font-weight: 700;
+		box-shadow: var(--box-shadow);
+	}
+	.contact-button.gmail {
+		background: var(--accent);
+		color: white;
+	}
+	.contact-button.mailto {
+		background: rgb(var(--gray-dark));
+		color: rgb(var(--gray-light));
+	}
+	.contact-button:hover {
+		filter: brightness(1.05);
+	}
+	.contact-alt {
+		text-align: center;
+	}
+</style>
