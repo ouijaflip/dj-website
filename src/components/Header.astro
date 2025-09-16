@@ -2,12 +2,28 @@
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 import { ViewTransitions } from 'astro:transitions';
+
+const siteTitle = SITE_TITLE;
+const idx = siteTitle.search(/i/i);
+const titleBefore = idx !== -1 ? siteTitle.slice(0, idx) : siteTitle;
+const titleI = idx !== -1 ? siteTitle[idx] : '';
+const titleAfter = idx !== -1 ? siteTitle.slice(idx + 1) : '';
 ---
 
 <ViewTransitions />
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<h2>
+			<a href="/" class="brand-link">
+				{titleI ? (
+					<>
+						{titleBefore}<span class="brand-i">{titleI}</span>{titleAfter}
+					</>
+				) : (
+					SITE_TITLE
+				)}
+			</a>
+		</h2>
 		<div class="internal-links">
 			<HeaderLink href="/about">About</HeaderLink>
 			<HeaderLink href="/bookings">Bookings</HeaderLink>
@@ -92,4 +108,11 @@ import { ViewTransitions } from 'astro:transitions';
 			display: none;
 		}
 	}
+.brand-i {
+	background: linear-gradient(92deg, #ff4da6, #ff96c7);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-shadow: 0 0 10px rgba(255, 77, 166, 0.35);
+}
 </style>
