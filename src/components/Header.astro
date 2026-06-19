@@ -8,6 +8,17 @@ const idx = siteTitle.search(/i/i);
 const titleBefore = idx !== -1 ? siteTitle.slice(0, idx) : siteTitle;
 const titleI = idx !== -1 ? siteTitle[idx] : '';
 const titleAfter = idx !== -1 ? siteTitle.slice(idx + 1) : '';
+
+// Split title into segments for styling: "PGH " (gold), "Dynam" + "i" + "c" (futuristic), " events" (complementary)
+const pghMatch = siteTitle.match(/^PGH\s/);
+const pghPrefix = pghMatch ? pghMatch[0] : '';
+const remainingAfterPgh = pghMatch ? siteTitle.slice(pghMatch[0].length) : siteTitle;
+const dynamicMatch = remainingAfterPgh.match(/^Dynamic\s/);
+const dynamicPart = dynamicMatch ? dynamicMatch[0] : '';
+const eventsPart = dynamicMatch ? remainingAfterPgh.slice(dynamicMatch[0].length) : '';
+const beforeI = dynamicMatch ? 'Dynam' : '';
+const iChar = dynamicMatch ? 'i' : '';
+const afterI = dynamicMatch ? 'c' : '';
 ---
 
 <ViewTransitions />
@@ -15,13 +26,19 @@ const titleAfter = idx !== -1 ? siteTitle.slice(idx + 1) : '';
 	<nav>
 		<h2>
 			<a href="/" class="brand-link">
-				{titleI ? (
+				{pghPrefix && (
+					<>
+						<span class="brand-pgh">{pghPrefix}</span>
+						{beforeI}<span class="brand-i">{iChar}</span>{afterI}
+						<span class="brand-events"> {eventsPart}</span>
+					</>
+				) || (titleI ? (
 					<>
 						{titleBefore}<span class="brand-i">{titleI}</span>{titleAfter}
 					</>
 				) : (
 					SITE_TITLE
-				)}
+				))}
 			</a>
 		</h2>
 		<div class="internal-links">
@@ -108,12 +125,27 @@ const titleAfter = idx !== -1 ? siteTitle.slice(idx + 1) : '';
 			display: none;
 		}
 	}
+.brand-pgh {
+	color: #d4af37;
+	font-weight: bold;
+	letter-spacing: 0.05em;
+}
 .brand-i {
-	background: linear-gradient(92deg, #ff4da6, #ff96c7);
+	background: linear-gradient(92deg, #00d9ff, #0099ff);
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
-	text-shadow: 0 0 10px rgba(255, 77, 166, 0.35);
+	text-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
+	font-family: 'Arial Black', sans-serif;
+	font-weight: 900;
+	letter-spacing: -0.02em;
+}
+.brand-events {
+	background: linear-gradient(92deg, #ff6b9d, #ff96c7);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-shadow: 0 0 10px rgba(255, 107, 157, 0.4);
 }
 </style>
 </style>
