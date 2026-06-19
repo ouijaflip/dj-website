@@ -9,12 +9,12 @@ const titleBefore = idx !== -1 ? siteTitle.slice(0, idx) : siteTitle;
 const titleI = idx !== -1 ? siteTitle[idx] : '';
 const titleAfter = idx !== -1 ? siteTitle.slice(idx + 1) : '';
 
-// Split title into segments for styling: "PGH " (gold), "Dynam" + "i" + "c" (futuristic), " events" (complementary)
+// Split title into segments for styling: "PGH " (gold), "Dynam" + "i" + "c" (futuristic), " Events" (complementary)
 const pghMatch = siteTitle.match(/^PGH\s/);
 const pghPrefix = pghMatch ? pghMatch[0] : '';
 const remainingAfterPgh = pghMatch ? siteTitle.slice(pghMatch[0].length) : siteTitle;
 const dynamicMatch = remainingAfterPgh.match(/^Dynamic\s/);
-const dynamicPart = dynamicMatch ? dynamicMatch[0] : '';
+const dynamicPart = dynamicMatch ? dynamicMatch[0].trim() : '';
 const eventsPart = dynamicMatch ? remainingAfterPgh.slice(dynamicMatch[0].length) : '';
 const beforeI = dynamicMatch ? 'Dynam' : '';
 const iChar = dynamicMatch ? 'i' : '';
@@ -29,8 +29,8 @@ const afterI = dynamicMatch ? 'c' : '';
 				{pghPrefix && (
 					<>
 						<span class="brand-pgh">{pghPrefix}</span>
-						{beforeI}<span class="brand-i">{iChar}</span>{afterI}
-						<span class="brand-events"> {eventsPart}</span>
+						<span class="brand-dynamic">{beforeI}<span class="brand-i">{iChar}</span>{afterI}</span>
+						<span class="brand-events"> {eventsPart.charAt(0).toUpperCase() + eventsPart.slice(1)}</span>
 					</>
 				) || (titleI ? (
 					<>
@@ -129,6 +129,16 @@ const afterI = dynamicMatch ? 'c' : '';
 	color: #d4af37;
 	font-weight: bold;
 	letter-spacing: 0.05em;
+}
+.brand-dynamic {
+	background: linear-gradient(92deg, #00d9ff, #0099ff);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	text-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
+	font-family: 'Arial Black', sans-serif;
+	font-weight: 900;
+	letter-spacing: -0.02em;
 }
 .brand-i {
 	background: linear-gradient(92deg, #00d9ff, #0099ff);
