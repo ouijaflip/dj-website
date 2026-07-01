@@ -4,21 +4,14 @@ import { SITE_TITLE } from '../consts';
 import { ViewTransitions } from 'astro:transitions';
 
 const siteTitle = SITE_TITLE;
-const idx = siteTitle.search(/i/i);
-const titleBefore = idx !== -1 ? siteTitle.slice(0, idx) : siteTitle;
-const titleI = idx !== -1 ? siteTitle[idx] : '';
-const titleAfter = idx !== -1 ? siteTitle.slice(idx + 1) : '';
 
-// Split title into segments for styling: "PGH " (gold), "Dynam" + "i" + "c" (futuristic), " Events" (complementary)
-const pghMatch = siteTitle.match(/^PGH\s/);
-const pghPrefix = pghMatch ? pghMatch[0] : '';
-const remainingAfterPgh = pghMatch ? siteTitle.slice(pghMatch[0].length) : siteTitle;
-const dynamicMatch = remainingAfterPgh.match(/^Dynamic\s/);
-const dynamicPart = dynamicMatch ? dynamicMatch[0].trim() : '';
-const eventsPart = dynamicMatch ? remainingAfterPgh.slice(dynamicMatch[0].length) : '';
-const beforeI = dynamicMatch ? 'Dynam' : '';
-const iChar = dynamicMatch ? 'i' : '';
-const afterI = dynamicMatch ? 'c' : '';
+// Split title into segments for styling: "Star " (gold), "Lake" (futuristic), " Events" (complementary)
+const starMatch = siteTitle.match(/^Star\s/);
+const starPrefix = starMatch ? starMatch[0] : '';
+const remainingAfterStar = starMatch ? siteTitle.slice(starMatch[0].length) : siteTitle;
+const lakeMatch = remainingAfterStar.match(/^Lake\s/);
+const lakePart = lakeMatch ? lakeMatch[0].trim() : '';
+const eventsPart = lakeMatch ? remainingAfterStar.slice(lakeMatch[0].length) : '';
 ---
 
 <ViewTransitions />
@@ -26,19 +19,15 @@ const afterI = dynamicMatch ? 'c' : '';
 	<nav>
 		<h2>
 			<a href="/" class="brand-link">
-				{pghPrefix && (
+				{starPrefix && (
 					<>
-						<span class="brand-pgh">{pghPrefix}</span>
-						<span class="brand-dynamic">{beforeI}<span class="brand-i">{iChar}</span>{afterI}</span>
-						<span class="brand-events"> {eventsPart.charAt(0).toUpperCase() + eventsPart.slice(1)}</span>
+						<span class="brand-pgh">{starPrefix}</span>
+						<span class="brand-dynamic">{lakePart}</span>
+						<span class="brand-events"> {eventsPart}</span>
 					</>
-				) || (titleI ? (
-					<>
-						{titleBefore}<span class="brand-i">{titleI}</span>{titleAfter}
-					</>
-				) : (
+				) || (
 					SITE_TITLE
-				))}
+				)}
 			</a>
 		</h2>
 		<div class="internal-links">
