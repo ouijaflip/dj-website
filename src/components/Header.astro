@@ -5,13 +5,13 @@ import { ViewTransitions } from 'astro:transitions';
 
 const siteTitle = SITE_TITLE;
 
-// Split title into segments for styling: "Star " (gold), "Lake" (futuristic), " Events" (complementary)
-const starMatch = siteTitle.match(/^Star\s/);
-const starPrefix = starMatch ? starMatch[0] : '';
-const remainingAfterStar = starMatch ? siteTitle.slice(starMatch[0].length) : siteTitle;
-const lakeMatch = remainingAfterStar.match(/^Lake\s/);
-const lakePart = lakeMatch ? lakeMatch[0].trim() : '';
-const eventsPart = lakeMatch ? remainingAfterStar.slice(lakeMatch[0].length) : '';
+// Split title into segments for styling: "Comet " (gold), "Event " (futuristic), "Co" (complementary)
+const cometMatch = siteTitle.match(/^Comet\s/);
+const cometPrefix = cometMatch ? cometMatch[0] : '';
+const remainingAfterComet = cometMatch ? siteTitle.slice(cometMatch[0].length) : siteTitle;
+const eventMatch = remainingAfterComet.match(/^Event\s/);
+const eventPart = eventMatch ? eventMatch[0].trim() : '';
+const coPart = eventMatch ? remainingAfterComet.slice(eventMatch[0].length) : '';
 ---
 
 <ViewTransitions />
@@ -19,11 +19,11 @@ const eventsPart = lakeMatch ? remainingAfterStar.slice(lakeMatch[0].length) : '
 	<nav>
 		<h2>
 			<a href="/" class="brand-link">
-				{starPrefix && (
+				{cometPrefix && (
 					<>
-						<span class="brand-pgh">{starPrefix}</span>
-						<span class="brand-dynamic">{lakePart}</span>
-						<span class="brand-events"> {eventsPart}</span>
+						<span class="brand-pgh">{cometPrefix}</span>
+						<span class="brand-dynamic">{eventPart}</span>
+						<span class="brand-events"> {coPart}</span>
 					</>
 				) || (
 					SITE_TITLE
