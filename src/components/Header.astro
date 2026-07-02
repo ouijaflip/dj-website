@@ -5,13 +5,10 @@ import { ViewTransitions } from 'astro:transitions';
 
 const siteTitle = SITE_TITLE;
 
-// Split title into segments for styling: "Comet " (gold), "Event " (futuristic), "Co" (complementary)
-const cometMatch = siteTitle.match(/^Comet\s/);
-const cometPrefix = cometMatch ? cometMatch[0] : '';
-const remainingAfterComet = cometMatch ? siteTitle.slice(cometMatch[0].length) : siteTitle;
-const eventMatch = remainingAfterComet.match(/^Event\s/);
-const eventPart = eventMatch ? eventMatch[0].trim() : '';
-const coPart = eventMatch ? remainingAfterComet.slice(eventMatch[0].length) : '';
+// Split title into segments for styling: "Adkins " (gold), "Entertainment" (futuristic)
+const adkinsMatch = siteTitle.match(/^Adkins\s/);
+const adkinsPrefix = adkinsMatch ? adkinsMatch[0] : '';
+const entertainmentPart = adkinsMatch ? siteTitle.slice(adkinsMatch[0].length) : '';
 ---
 
 <ViewTransitions />
@@ -19,11 +16,10 @@ const coPart = eventMatch ? remainingAfterComet.slice(eventMatch[0].length) : ''
 	<nav>
 		<h2>
 			<a href="/" class="brand-link">
-				{cometPrefix && (
+				{adkinsPrefix && (
 					<>
-						<span class="brand-pgh">{cometPrefix}</span>
-						<span class="brand-dynamic">{eventPart}</span>
-						<span class="brand-events"> {coPart}</span>
+						<span class="brand-pgh">{adkinsPrefix}</span>
+						<span class="brand-dynamic">{entertainmentPart}</span>
 					</>
 				) || (
 					SITE_TITLE
