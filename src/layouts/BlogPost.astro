@@ -60,12 +60,29 @@ const { title, description, pubDate, updatedDate, heroImage, headerNote } = Astr
 			}
 			.title h1 {
 				margin: 0 0 0.5em 0;
-					position: relative;
-				background: linear-gradient(92deg, #8a2be2, var(--accent));
+				position: relative;
+				color: #d4af37;
+				letter-spacing: 0.02em;
+			}
+			.title h1 .pgh-part {
+				color: #d4af37;
+			}
+			.title h1 .dynamic-part {
+				background: linear-gradient(92deg, #00d9ff, #0099ff);
 				-webkit-background-clip: text;
 				background-clip: text;
 				color: transparent;
-				text-shadow: 0 0 24px rgba(35, 55, 255, 0.2);
+				text-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
+				font-family: 'Arial Black', sans-serif;
+				font-weight: 900;
+				letter-spacing: -0.02em;
+			}
+			.title h1 .events-part {
+				background: linear-gradient(92deg, #ff6b9d, #ff96c7);
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
+				text-shadow: 0 0 10px rgba(255, 107, 157, 0.4);
 			}
 			.date {
 				margin-bottom: 0.5em;
@@ -90,8 +107,8 @@ const { title, description, pubDate, updatedDate, heroImage, headerNote } = Astr
 				height: 3px;
 				width: 60%;
 				border-radius: 999px;
-				background: linear-gradient(92deg, #8a2be2, var(--accent));
-				box-shadow: 0 0 14px rgba(35, 55, 255, 0.35);
+				background: linear-gradient(92deg, #d4af37, #00d9ff);
+				box-shadow: 0 0 14px rgba(0, 217, 255, 0.35);
 			}
 
 			.title hr, .prose hr {
@@ -128,7 +145,9 @@ const { title, description, pubDate, updatedDate, heroImage, headerNote } = Astr
 								</>
 							)}
 						</div>
-						<h1>{title}</h1>
+						<h1>
+							<span class="pgh-part">Adkins </span><span class="dynamic-part">Event</span><span class="events-part"> Co.</span>
+						</h1>
 						<hr />
 					</div>
 					<slot />
