@@ -5,10 +5,13 @@ import { ViewTransitions } from 'astro:transitions';
 
 const siteTitle = SITE_TITLE;
 
-// Split title into segments for styling: "Adkins " (gold), "Entertainment" (futuristic)
+// Split title into segments for styling: "Adkins " (gold), "Event " (futuristic), "Co" (complementary)
 const adkinsMatch = siteTitle.match(/^Adkins\s/);
 const adkinsPrefix = adkinsMatch ? adkinsMatch[0] : '';
-const entertainmentPart = adkinsMatch ? siteTitle.slice(adkinsMatch[0].length) : '';
+const remainingAfterAdkins = adkinsMatch ? siteTitle.slice(adkinsMatch[0].length) : siteTitle;
+const eventMatch = remainingAfterAdkins.match(/^Event\s/);
+const eventPart = eventMatch ? eventMatch[0].trim() : '';
+const coPart = eventMatch ? remainingAfterAdkins.slice(eventMatch[0].length) : '';
 ---
 
 <ViewTransitions />
@@ -19,7 +22,8 @@ const entertainmentPart = adkinsMatch ? siteTitle.slice(adkinsMatch[0].length) :
 				{adkinsPrefix && (
 					<>
 						<span class="brand-pgh">{adkinsPrefix}</span>
-						<span class="brand-dynamic">{entertainmentPart}</span>
+						<span class="brand-dynamic">{eventPart}</span>
+						<span class="brand-events"> {coPart}</span>
 					</>
 				) || (
 					SITE_TITLE
