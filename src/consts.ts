@@ -3,4 +3,4 @@
 
 export const SITE_TITLE = "Adkins Event Co";
 export const SITE_DESCRIPTION =
-	"Premium wedding, club, and corporate DJ + lighting for Pittsburgh & Western PA. Curated sound, cinematic lighting, and a dance floor that never empties.";
+	"Wedding, club, and corporate DJ + lighting based in Pittsburgh, serving Western PA.";
