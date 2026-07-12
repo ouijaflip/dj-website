@@ -1,83 +1,263 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout
-	title="Bookings"
-	description="Check availability and book premium wedding DJ + lighting"
-	pubDate={new Date('August 08 2021')}
-	headerNote="Fast responses • Clear timelines • Tailored to your event"
->
-	<section class="contact-hero glow-card">
-		<h2 class="headline">Let’s lock in your date.</h2>
-		<p class="sub">Answer a few quick questions below or email us directly — we’ll reply within 24 hours.</p>
-	</section>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Bookings — Adkins Event Co"
+			description="Request a quote and check availability for premium DJ + lighting."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="page-hero">
+				<div class="wrap">
+					<span class="label"><span class="led blink"></span> Now booking</span>
+					<h1>Lock in<br />your date.</h1>
+					<p class="lead">
+						Fast responses, clear timelines, tailored to your event. Fill out the form and we'll reply within
+						24 hours with availability and a quote.
+					</p>
+					<div class="chips">
+						<span class="chip"><span class="led"></span> Reply within 24h</span>
+						<span class="chip"><span class="led orange"></span> Fully insured</span>
+						<span class="chip"><span class="led"></span> Pittsburgh + W. PA</span>
+					</div>
+				</div>
+			</section>
 
-	<section class="contact-actions glass-surface">
-		<h3 class="section-title">Email Options</h3>
-		<div class="email-buttons">
-			<a
-				class="contact-button gmail button-neon"
-				href="https://mail.google.com/mail/?view=cm&to=djemail@gmail.com&su=Booking%20Inquiry&body=Hi%20Pink%20Tiger%20DJ%20Co.%2C%0A%0AEvent%20date%3A%20%0ALocation%3A%20%0AGuests%3A%20%0APackage%3A%20%0A%0AAdditional%20details%3A%20"
-				target="_blank"
-				rel="noopener noreferrer"
-			>
-				Email via Gmail
-			</a>
-			<a
-				class="contact-button mailto button-neon"
-				href="mailto:djemail@gmail.com?subject=Booking%20Inquiry&body=Hi%20Pink%20Tiger%20DJ%20Co.%2C%0A%0AEvent%20date%3A%20%0ALocation%3A%20%0AGuests%3A%20%0APackage%3A%20%0A%0AAdditional%20details%3A%20"
-			>
-				Open email app
-			</a>
-		</div>
-		<p class="contact-alt">Prefer phone? Call or text <strong>724-243-9327</strong>.</p>
-	</section>
+			<section class="section">
+				<div class="wrap booking-grid">
+					<div class="card form-card reveal">
+						<div class="mod-head" style="margin-bottom:1.4rem">
+							<span class="num">01</span>
+							<span class="label">Request a quote</span>
+						</div>
+						<form id="inquiry" novalidate>
+							<div class="row">
+								<label>
+									<span class="fl">Name</span>
+									<input name="name" type="text" required autocomplete="name" placeholder="Your name" />
+								</label>
+								<label>
+									<span class="fl">Email</span>
+									<input name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
+								</label>
+							</div>
+							<div class="row">
+								<label>
+									<span class="fl">Phone <em>(optional)</em></span>
+									<input name="phone" type="tel" autocomplete="tel" placeholder="000-000-0000" />
+								</label>
+								<label>
+									<span class="fl">Event date</span>
+									<input name="date" type="date" />
+								</label>
+							</div>
+							<div class="row">
+								<label>
+									<span class="fl">Event type</span>
+									<select name="type">
+										<option value="Wedding">Wedding</option>
+										<option value="Club / Venue">Club / Venue</option>
+										<option value="Corporate / Gala">Corporate / Gala</option>
+										<option value="Private party">Private party</option>
+										<option value="Other">Other</option>
+									</select>
+								</label>
+								<label>
+									<span class="fl">Estimated guests</span>
+									<input name="guests" type="text" inputmode="numeric" placeholder="e.g. 120" />
+								</label>
+							</div>
+							<label class="full">
+								<span class="fl">Venue / location</span>
+								<input name="location" type="text" placeholder="Venue name or city" />
+							</label>
+							<div class="services-field">
+								<span class="fl">Services needed</span>
+								<div class="checks">
+									<label class="check"><input type="checkbox" name="service" value="DJ" checked /> DJ</label>
+									<label class="check"><input type="checkbox" name="service" value="Lighting" /> Lighting</label>
+									<label class="check"><input type="checkbox" name="service" value="MC / Hosting" /> MC / Hosting</label>
+									<label class="check"><input type="checkbox" name="service" value="AV / Projection" /> AV / Projection</label>
+								</div>
+							</div>
+							<label class="full">
+								<span class="fl">Details</span>
+								<textarea name="details" rows="4" placeholder="Tell us about your event, must-play songs, timeline, anything else…"></textarea>
+							</label>
+							<button type="submit" class="btn btn-primary submit">Send inquiry →</button>
+							<p class="form-note">Opens your email app with everything filled in. Prefer to talk? <a href="tel:7242439327">Call 724-243-9327</a>.</p>
+						</form>
+					</div>
+					<aside class="side">
+						<div class="card side-card reveal">
+							<span class="label">Direct</span>
+							<a href="tel:7242439327" class="side-row">
+								<span class="side-k">Call / Text</span>
+								<span class="side-v">724-243-9327</span>
+							</a>
+							<a href="mailto:damonmckayadkins@gmail.com" class="side-row">
+								<span class="side-k">Email</span>
+								<span class="side-v small">damonmckayadkins@gmail.com</span>
+							</a>
+						</div>
+						<div class="card side-card reveal">
+							<span class="label">What happens next</span>
+							<ol class="next">
+								<li>We confirm availability for your date</li>
+								<li>You get a tailored quote within 24h</li>
+								<li>We plan the timeline + music together</li>
+							</ol>
+						</div>
+					</aside>
+				</div>
+			</section>
 
-	<section class="details">
-		<h3 class="section-title">What to include</h3>
-		<ul class="pill-list">
-			<li>Date + venue</li>
-			<li>Estimated guests</li>
-			<li>Services needed (DJ / Lighting)</li>
-			<li>Any special moments or songs</li>
-		</ul>
-	</section>
-
-	<div class="cta">
-		<a href="/about" class="cta-button button-neon">Explore services</a>
-	</div>
-</Layout>
+			<section class="section faq-section">
+				<div class="wrap">
+					<div class="mod-head reveal">
+						<span class="num">02</span>
+						<span class="label">Common questions</span>
+					</div>
+					<div class="faq-grid">
+						<div class="faq card reveal">
+							<h3>How far in advance should I book?</h3>
+							<p>Popular dates — especially Saturdays in wedding season — get claimed 6–12 months out. Reach out early and we'll tell you exactly what's open.</p>
+						</div>
+						<div class="faq card reveal">
+							<h3>Do you travel?</h3>
+							<p>We're based in Pittsburgh and cover Western PA and beyond. Events outside our local radius may include a small travel fee — we'll always confirm up front.</p>
+						</div>
+						<div class="faq card reveal">
+							<h3>Do you bring backup equipment?</h3>
+							<p>Always. Every event runs on professional gear with redundant backups, so the music never stops.</p>
+						</div>
+						<div class="faq card reveal">
+							<h3>Can we request specific songs?</h3>
+							<p>Absolutely. You give us your must-plays and do-not-plays, and we read the room from there to keep the floor full.</p>
+						</div>
+						<div class="faq card reveal">
+							<h3>What lighting do you offer?</h3>
+							<p>Uplighting, dance-floor effects, and full sound-reactive light shows — all designed to fit your venue and vibe.</p>
+						</div>
+						<div class="faq card reveal">
+							<h3>How do we hold our date?</h3>
+							<p>A signed agreement and retainer secure your date. We'll walk through the exact terms with your custom quote.</p>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+		<script>
+			// Lightweight scroll-reveal
+			(function () {
+				const els = document.querySelectorAll('.reveal');
+				if (!('IntersectionObserver' in window) || !els.length) {
+					els.forEach((e) => e.classList.add('in'));
+					return;
+				}
+				const io = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('in');
+								io.unobserve(entry.target);
+							}
+						});
+					},
+					{ threshold: 0.12 },
+				);
+				els.forEach((e) => io.observe(e));
+			})();
+		</script>
+		<script>
+			(function () {
+				const EMAIL = 'damonmckayadkins@gmail.com';
+				const form = document.getElementById('inquiry');
+				if (form) {
+					form.addEventListener('submit', (e) => {
+						e.preventDefault();
+						const d = new FormData(form as HTMLFormElement);
+						const services = d.getAll('service').join(', ') || '—';
+						const lines = [
+							`Name: ${d.get('name') || ''}`,
+							`Email: ${d.get('email') || ''}`,
+							`Phone: ${d.get('phone') || ''}`,
+							`Event date: ${d.get('date') || ''}`,
+							`Event type: ${d.get('type') || ''}`,
+							`Estimated guests: ${d.get('guests') || ''}`,
+							`Venue / location: ${d.get('location') || ''}`,
+							`Services: ${services}`,
+							'',
+							'Details:',
+							`${d.get('details') || ''}`,
+						];
+						const subject = `Booking Inquiry — ${d.get('type') || 'Event'}${d.get('date') ? ' (' + d.get('date') + ')' : ''}`;
+						const href = `mailto:${EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(lines.join('\n'))}`;
+						window.location.href = href;
+					});
+				}
+			})();
+		</script>
+	</body>
+</html>
 
 <style>
-	.headline {
-		font-size: 2.2rem;
-		margin: 0 0 .25rem 0;
-		background: linear-gradient(92deg, #8a2be2, var(--accent));
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
-		text-shadow: 0 0 24px rgba(35, 55, 255, 0.2);
+	main { margin: 0; padding: 0; width: 100%; }
+	.page-hero { padding: clamp(2rem, 6vw, 4rem) 0 1rem; }
+	.page-hero .label { display: inline-flex; align-items: center; gap: 0.5rem; }
+	.page-hero h1 { margin-top: 0.6rem; }
+	.lead { max-width: 620px; margin-top: 1rem; color: var(--muted); font-size: 1.05rem; }
+	.chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.4rem; }
+	.chip {
+		display: inline-flex; align-items: center; gap: 0.5rem;
+		font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted);
+		border: 1.5px solid var(--line); border-radius: 999px; padding: 0.35rem 0.8rem;
+		background: var(--panel);
 	}
-	.sub { color: rgb(var(--gray)); margin: 0; }
 
-	.contact-hero { padding: 1.25rem; }
-	.contact-actions { padding: 1.25rem; margin-top: 1rem; }
-	.email-buttons { display: flex; flex-wrap: wrap; gap: 1rem; margin: .75rem 0 1rem 0; }
-	.contact-button { display: inline-block; padding: .8rem 1.2rem; border-radius: 10px; text-decoration: none; font-weight: 700; }
-	.contact-button.gmail { background: var(--accent); color: white; }
-	.contact-button.mailto { background: rgb(var(--gray-dark)); color: rgb(var(--gray-light)); }
-	.contact-alt { color: rgb(var(--gray)); }
+	.booking-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1.4rem; align-items: start; }
+	.form-card, .side-card { padding: 1.6rem; }
+	.side { display: flex; flex-direction: column; gap: 1.4rem; }
 
-	.details { margin-top: 2rem; padding: 1.25rem; }
-	.section-title { margin: 0 0 .75rem 0; letter-spacing: .04em; text-transform: uppercase; color: rgb(var(--gray)); }
-	.pill-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
-	.pill-list li { border: 1px solid rgba(var(--gray), .25); border-radius: 999px; padding: .4rem .7rem; background: rgba(255,255,255,.02); }
+	form .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+	form label { display: flex; flex-direction: column; gap: 0.4rem; font-family: var(--font-mono); font-size: 0.78rem; color: var(--muted); }
+	form label.full { margin-bottom: 1rem; }
+	form label em { font-style: normal; opacity: 0.7; }
+	form input, form select, form textarea {
+		font-family: var(--font-sans); color: var(--ink); background: var(--panel-2);
+		border: 1.5px solid var(--line); border-radius: 4px; padding: 0.6rem 0.7rem;
+	}
+	form textarea { resize: vertical; }
+	.services-field { margin-bottom: 1rem; }
+	.checks { display: flex; flex-wrap: wrap; gap: 0.8rem; margin-top: 0.5rem; }
+	.check { flex-direction: row !important; align-items: center; gap: 0.4rem !important; font-family: var(--font-sans); font-size: 0.9rem; color: var(--ink); }
+	.submit { margin-top: 0.4rem; }
+	.form-note { font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); margin-top: 0.8rem; }
 
-	.cta { text-align: center; margin: 2rem 0 1rem 0; }
-	.cta-button { display: inline-block; padding: .8rem 1.2rem; border-radius: 10px; text-decoration: none; color: white; background: rgb(35, 55, 255); }
+	.side-card .label { display: block; margin-bottom: 0.9rem; }
+	.side-row { display: flex; flex-direction: column; gap: 0.15rem; padding: 0.7rem 0; border-top: 1px solid var(--hair); }
+	.side-row:first-of-type { border-top: none; }
+	.side-k { font-family: var(--font-mono); font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+	.side-v { font-weight: 700; color: var(--ink); }
+	.side-v.small { font-size: 0.85rem; }
+	.next { margin: 0; padding-left: 1.1rem; display: flex; flex-direction: column; gap: 0.6rem; font-size: 0.9rem; color: var(--muted); }
+
+	.faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+	.faq { padding: 1.3rem 1.4rem; }
+	.faq p { color: var(--muted); font-size: 0.92rem; margin: 0.5rem 0 0; }
 
 	@media (max-width: 900px) {
-		.email-buttons { flex-direction: column; }
+		.booking-grid { grid-template-columns: 1fr; }
+		form .row { grid-template-columns: 1fr; }
+		.faq-grid { grid-template-columns: 1fr; }
 	}
 </style>

@@ -1,113 +1,163 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<Layout
-	title="Adkins Event Co"
-	description="Modern wedding DJ + lighting for unforgettable celebrations"
-	pubDate={new Date('August 08 2021')}
-	headerNote="Modern DJ + lighting"
->
-	<section class="intro-section glow-card">
-		<h2 class="headline">Elevate your night.</h2>
-		<p class="tagline">Professional, experienced entertainment that combines curated mixes, seamless hosting, and elegant lighting to turn moments into memories.</p>
-		<div class="highlights">
-			<div class="highlight glass-surface">
-				<h3>Signature Sound</h3>
-				<p>Years of professional experience with custom playlists, expert live mixing, and pro-grade audio tuned to your space and crowd.</p>
-			</div>
-			<div class="highlight glass-surface">
-				<h3>Atmospheric Lighting</h3>
-				<p>Dynamic uplighting, tasteful effects, and room-wide ambiance that feels cinematic.</p>
-			</div>
-			<div class="highlight glass-surface">
-				<h3>White‑Glove Service</h3>
-				<p>Professional execution with clear timelines, flawless cues, and expert vendor coordination so your night flows effortlessly.</p>
-			</div>
-		</div>
-	</section>
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead
+			title="Services — Adkins Event Co"
+			description="DJ, lighting, and event production packages for weddings, clubs, and corporate events."
+		/>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="page-hero">
+				<div class="wrap">
+					<span class="label">Services</span>
+					<h1>Elevate<br />your night.</h1>
+					<p class="lead">
+						Professional entertainment that blends curated mixes, seamless hosting, and cinematic lighting —
+						turning moments into memories your guests won't stop talking about.
+					</p>
+				</div>
+			</section>
 
-	<section class="packages">
-		<h3 class="section-title">Popular Services</h3>
-		<div class="package-grid">
-			<div class="package-card glass-surface">
-				<h4>Weddings & Events</h4>
-				<ul>
-					<li>Ceremony + Reception coverage</li>
-					<li>Pro audio + wireless mics</li>
-					<li>Custom lighting design</li>
-				</ul>
-			</div>
-			<div class="package-card glass-surface featured">
-				<h4>Club & Venue</h4>
-				<ul>
-					<li>Full-night DJ service</li>
-					<li>Advanced light shows + effects with sound-controlled sync</li>
-					<li>Room ambiance curation</li>
-				</ul>
-			</div>
-			<div class="package-card glass-surface">
-				<h4>Corporate Services</h4>
-				<ul>
-					<li>Professional sound + lighting</li>
-					<li>Audio visual setup + support</li>
-					<li>Event coordination support</li>
-					<li>Stage lighting</li>
-					<li>Projection + screen management</li>
-				</ul>
-			</div>
-		</div>
-	</section>
+			<section class="section">
+				<div class="wrap">
+					<div class="mod-head reveal">
+						<span class="num">01</span>
+						<span class="label">Packages</span>
+					</div>
+					<div class="grid-3">
+						<article class="card pkg">
+							<div class="pkg-top">
+								<span class="ch">A</span>
+							</div>
+							<h3>Weddings &amp; Events</h3>
+							<ul>
+								<li>Ceremony + reception coverage</li>
+								<li>Pro audio + wireless mics</li>
+								<li>Custom uplighting design</li>
+								<li>MC hosting + timeline</li>
+							</ul>
+						</article>
+						<article class="card pkg featured">
+							<div class="pkg-top">
+								<span class="ch">B</span>
+								<span class="tag">Most booked</span>
+							</div>
+							<h3>Clubs &amp; Venues</h3>
+							<ul>
+								<li>Full-night open-format DJ</li>
+								<li>Sound-reactive light show</li>
+								<li>Effects + haze</li>
+								<li>Room ambiance curation</li>
+							</ul>
+						</article>
+						<article class="card pkg">
+							<div class="pkg-top">
+								<span class="ch">C</span>
+							</div>
+							<h3>Corporate &amp; Galas</h3>
+							<ul>
+								<li>Pro sound + AV setup</li>
+								<li>Stage + projection</li>
+								<li>Presentation support</li>
+								<li>Event coordination</li>
+							</ul>
+						</article>
+					</div>
+				</div>
+			</section>
 
-	<section class="why-us glow-card">
-		<h3 class="section-title">Why Choose Us</h3>
-		<ul class="pill-list">
-			<li>Years of professional experience</li>
-			<li>Intentional music curation</li>
-			<li>Elegant, minimal footprint</li>
-			<li>Expert MC presence without clichés</li>
-			<li>On-time, on-cue, on-point</li>
-		</ul>
-	</section>
+			<section class="section">
+				<div class="wrap">
+					<div class="mod-head reveal">
+						<span class="num">02</span>
+						<span class="label">Why us</span>
+					</div>
+					<div class="why-grid reveal">
+						<div class="why-item"><span class="led"></span>Read-the-room curation</div>
+						<div class="why-item"><span class="led"></span>Elegant, minimal footprint</div>
+						<div class="why-item"><span class="led"></span>Clean MC — no clichés</div>
+						<div class="why-item"><span class="led"></span>On-time, on-cue, on-point</div>
+						<div class="why-item"><span class="led"></span>Fully insured</div>
+						<div class="why-item"><span class="led"></span>Weddings + clubs + corporate</div>
+					</div>
+				</div>
+			</section>
 
-	<div class="cta">
-		<a href="/bookings" class="cta-button button-neon">Check availability</a>
-	</div>
-</Layout>
+			<section class="section">
+				<div class="wrap">
+					<div class="cta-panel reveal">
+						<div>
+							<span class="label">Availability</span>
+							<h2>Let's build your night.</h2>
+							<p>Check availability and get a tailored quote within 24 hours.</p>
+						</div>
+						<a href="/bookings" class="btn btn-primary">Check availability →</a>
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+		<script>
+			// Lightweight scroll-reveal
+			(function () {
+				const els = document.querySelectorAll('.reveal');
+				if (!('IntersectionObserver' in window) || !els.length) {
+					els.forEach((e) => e.classList.add('in'));
+					return;
+				}
+				const io = new IntersectionObserver(
+					(entries) => {
+						entries.forEach((entry) => {
+							if (entry.isIntersecting) {
+								entry.target.classList.add('in');
+								io.unobserve(entry.target);
+							}
+						});
+					},
+					{ threshold: 0.12 },
+				);
+				els.forEach((e) => io.observe(e));
+			})();
+		</script>
+	</body>
+</html>
 
 <style>
-	.headline {
-		font-size: 2.4rem;
-		margin: 0 0 .25rem 0;
-		background: linear-gradient(92deg, #8a2be2, var(--accent));
-		-webkit-background-clip: text;
-		background-clip: text;
-		color: transparent;
-		text-shadow: 0 0 24px rgba(35, 55, 255, 0.2);
-	}
-	.tagline { color: rgb(var(--gray)); margin: 0 0 1rem 0; }
+	main { margin: 0; padding: 0; width: 100%; }
+	.page-hero { padding: clamp(2rem, 6vw, 4rem) 0 1rem; }
+	.page-hero h1 { margin-top: 0.6rem; }
+	.lead { max-width: 620px; margin-top: 1rem; color: var(--muted); font-size: 1.05rem; }
+	.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; }
+	.pkg { padding: 1.5rem; }
+	.pkg-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.8rem; }
+	.ch { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.1em; border: 1.5px solid var(--line); border-radius: 3px; padding: 0.15rem 0.45rem; }
+	.pkg ul { list-style: none; padding: 0; margin: 1rem 0 0; }
+	.pkg li { font-family: var(--font-mono); font-size: 0.78rem; padding: 0.4rem 0 0.4rem 1.2rem; position: relative; border-top: 1px solid var(--hair); }
+	.pkg li:before { content: '▸'; position: absolute; left: 0; color: var(--orange); }
+	.pkg.featured { background: var(--purple); color: #fff; border-color: var(--purple); }
+	.pkg.featured h3 { color: #fff; }
+	.pkg.featured .ch { color: #fff; border-color: #ffffff80; }
+	.pkg.featured li { border-color: #ffffff38; }
+	.pkg.featured li:before { color: #fff; }
 
-	.intro-section { padding: 1.25rem; }
-	.highlights { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin-top: 1rem; }
-	.highlight { padding: 1rem; }
-	.highlight h3 { margin: 0 0 .5rem 0; }
+	.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1.5px solid var(--line); border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: var(--panel); }
+	.why-item { display: flex; align-items: center; gap: 0.7rem; font-family: var(--font-mono); font-size: 0.82rem; padding: 1.1rem 1.2rem; border-right: 1.5px solid var(--line); border-bottom: 1.5px solid var(--line); }
 
-	.packages { margin-top: 2rem; }
-	.section-title { margin: 0 0 .75rem 0; letter-spacing: .04em; text-transform: uppercase; color: rgb(var(--gray)); }
-	.package-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
-	.package-card { padding: 1rem; }
-	.package-card ul { margin: .5rem 0 0 1.25rem; }
-	.package-card.featured { box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 0 40px rgba(35,55,255,0.18); }
-
-	.why-us { padding: 1.25rem; margin-top: 2rem; }
-	.pill-list { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
-	.pill-list li { border: 1px solid rgba(var(--gray), .25); border-radius: 999px; padding: .4rem .7rem; background: rgba(255,255,255,.02); }
-
-	.cta { text-align: center; margin: 2rem 0 1rem 0; }
-	.cta-button { display: inline-block; padding: .8rem 1.2rem; border-radius: 10px; text-decoration: none; color: white; background: rgb(35, 55, 255); }
+	.cta-panel { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; background: var(--orange); color: #fff; border: 1.5px solid var(--line); border-radius: 10px; box-shadow: var(--shadow-lg); padding: clamp(1.8rem, 4vw, 2.6rem); }
+	.cta-panel h2 { color: #fff; }
+	.cta-panel .label { color: #ffffffe6; }
+	.cta-panel p { color: #ffffffe6; margin: 0.4rem 0 0; }
+	.cta-panel .btn-primary { background: #14101c; color: #fff; border-color: #14101c; }
 
 	@media (max-width: 900px) {
-		.highlights { grid-template-columns: 1fr; }
-		.package-grid { grid-template-columns: 1fr; }
+		.grid-3, .why-grid { grid-template-columns: 1fr; }
 	}
 </style>

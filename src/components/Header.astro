@@ -2,128 +2,81 @@
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 import { ViewTransitions } from 'astro:transitions';
-
-const siteTitle = SITE_TITLE;
-
-// Split title into segments for styling: "Adkins " (gold), "Event " (futuristic), "Co" (complementary)
-const adkinsMatch = siteTitle.match(/^Adkins\s/);
-const adkinsPrefix = adkinsMatch ? adkinsMatch[0] : '';
-const remainingAfterAdkins = adkinsMatch ? siteTitle.slice(adkinsMatch[0].length) : siteTitle;
-const eventMatch = remainingAfterAdkins.match(/^Event\s/);
-const eventPart = eventMatch ? eventMatch[0].trim() : '';
-const coPart = eventMatch ? remainingAfterAdkins.slice(eventMatch[0].length) : '';
 ---
 
 <ViewTransitions />
 <header>
-	<nav>
-		<h2>
-			<a href="/" class="brand-link">
-				{adkinsPrefix && (
-					<>
-						<span class="brand-pgh">{adkinsPrefix}</span>
-						<span class="brand-dynamic">{eventPart}</span>
-						<span class="brand-events"> {coPart}.</span>
-					</>
-				) || (
-					SITE_TITLE
-				)}
-			</a>
-		</h2>
-		<div class="internal-links">
-			<HeaderLink href="/about">About</HeaderLink>
+	<div class="wrap bar">
+		<a href="/" class="brand" aria-label={`${SITE_TITLE} home`}>
+			<span class="logo-box">AEC</span>
+			<span class="brand-text">
+				<span class="brand-name">ADKINS EVENT CO</span>
+				<span class="brand-model">DJ + Lighting · Pittsburgh</span>
+			</span>
+		</a>
+		<nav class="links" aria-label="Primary">
+			<HeaderLink href="/">Home</HeaderLink>
+			<HeaderLink href="/about">Services</HeaderLink>
 			<HeaderLink href="/bookings">Bookings</HeaderLink>
+		</nav>
+		<div class="right">
+			<a href="/bookings" class="btn btn-primary book">Book</a>
 		</div>
-		<div class="social-links">
-			<a href="tel:724-243-9327">
-				<span class="sr-only">Call us</span>
-				<svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-				</svg>
-			</a>
-			<a href="mailto:damonmckayadkins@gmail.com">
-				<span class="sr-only">Email us</span>
-				<svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<rect x="2" y="4" width="20" height="16" rx="2"></rect>
-					<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-				</svg>
-			</a>
-		</div>
-	</nav>
+	</div>
 </header>
+
 <style>
 	header {
-		margin: 0;
-		padding: 0 1em;
-		background: rgba(10, 10, 14, 0.6);
-		backdrop-filter: blur(10px);
-		border-bottom: 1px solid rgba(var(--gray), 0.18);
-		box-shadow: 0 10px 30px rgba(0,0,0,0.35), 0 0 40px rgba(35, 55, 255, 0.08);
+		position: sticky;
+		top: 0;
+		z-index: 50;
+		background: var(--panel);
+		border-bottom: 1.5px solid var(--line);
 	}
-	h2 {
-		margin: 0;
-		font-size: 1em;
-	}
-
-	h2 a,
-	h2 a.active {
-		text-decoration: none;
-	}
-	nav {
+	.bar {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		gap: 1rem;
+		padding: 0.6rem 0;
 	}
-	nav a {
-		padding: 1em 0.75em;
-		color: rgb(var(--gray-light));
-		border-bottom: 2px solid transparent;
+	.brand {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.65rem;
 		text-decoration: none;
-		transition: color 0.2s ease, text-shadow 0.2s ease, border-color 0.2s ease;
+		color: var(--ink);
 	}
-	nav a.active {
-		text-decoration: none;
-		border-bottom-color: var(--accent);
-		text-shadow: 0 0 10px rgba(35, 55, 255, 0.5);
+	.logo-box {
+		font-family: var(--font-mono);
+		font-weight: 700;
+		font-size: 0.95rem;
+		background: var(--orange);
+		color: #fff;
+		border: 1.5px solid var(--line);
+		border-radius: 4px;
+		padding: 0.3rem 0.5rem;
+		letter-spacing: 0.04em;
 	}
-	nav a:hover {
-		border-bottom-color: var(--accent);
-		text-shadow: 0 0 10px rgba(35, 55, 255, 0.5);
+	.brand-text { display: flex; flex-direction: column; line-height: 1.1; }
+	.brand-name { font-weight: 800; letter-spacing: 0.01em; font-size: 1rem; }
+	.brand-model { font-family: var(--font-mono); font-size: 0.62rem; letter-spacing: 0.04em; color: var(--muted); }
+	.links { display: flex; gap: 0.2rem; }
+	.links :global(a) {
+		font-family: var(--font-mono);
+		font-size: 0.78rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		color: var(--muted);
+		padding: 0.4rem 0.7rem;
+		border: 1.5px solid transparent;
+		border-radius: 4px;
 	}
-	.social-links,
-	.social-links a {
-		display: flex;
+	.links :global(a:hover) { color: var(--ink); border-color: var(--line); }
+	.links :global(a.active) { color: #fff; background: var(--purple); border-color: var(--purple); }
+	.right { display: flex; align-items: center; gap: 0.9rem; }
+	.book { padding: 0.5rem 0.9rem; font-size: 0.78rem; }
+	@media (max-width: 760px) {
+		.brand-model, .links { display: none; }
 	}
-	.internal-links { gap: 0.25rem; }
-	@media (max-width: 720px) {
-		.social-links {
-			display: none;
-		}
-	}
-.brand-pgh {
-	color: #d4af37;
-	font-weight: bold;
-	letter-spacing: 0.05em;
-}
-.brand-dynamic {
-	background: linear-gradient(92deg, #00d9ff, #0099ff);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	text-shadow: 0 0 10px rgba(0, 217, 255, 0.4);
-	font-family: 'Arial Black', sans-serif;
-	font-weight: 900;
-	letter-spacing: -0.02em;
-}
-.brand-i {
-	/* Inherit all styling from parent .brand-dynamic */
-}
-.brand-events {
-	background: linear-gradient(92deg, #ff6b9d, #ff96c7);
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	text-shadow: 0 0 10px rgba(255, 107, 157, 0.4);
-}
-</style>
 </style>

@@ -3,45 +3,86 @@ const today = new Date();
 ---
 
 <footer>
-	<div class="social-links">
-		<a href="tel:724-243-9327">
-			<span class="sr-only">Call us</span>
-			<svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-			</svg>
-		</a>
-		<a href="mailto:damonmckayadkins@gmail.com">
-			<span class="sr-only">Email us</span>
-			<svg viewBox="0 0 24 24" aria-hidden="true" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-				<rect x="2" y="4" width="20" height="16" rx="2"></rect>
-				<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-			</svg>
-		</a>
+	<div class="wrap">
+		<div class="foot-grid">
+			<div class="foot-brand">
+				<span class="logo-box">AEC</span>
+				<div>
+					<div class="foot-name">ADKINS EVENT CO</div>
+					<div class="foot-model">DJ + Lighting · Pittsburgh &amp; Western PA</div>
+				</div>
+			</div>
+			<nav class="foot-links" aria-label="Footer">
+				<span class="label">Index</span>
+				<a href="/">Home</a>
+				<a href="/about">Services</a>
+				<a href="/bookings">Bookings</a>
+			</nav>
+			<div class="foot-contact">
+				<span class="label">Contact</span>
+				<a href="tel:7242439327">724-243-9327</a>
+				<a href="mailto:damonmckayadkins@gmail.com">damonmckayadkins@gmail.com</a>
+			</div>
+			<div class="foot-status">
+				<span class="label">Status</span>
+				<span class="stat"><span class="led"></span> Booking now</span>
+				<span class="stat"><span class="led orange"></span> Reply &lt; 24h</span>
+			</div>
+		</div>
+		<div class="foot-bottom">
+			<span>&copy; {today.getFullYear()} ADKINS EVENT CO</span>
+			<span class="label">All rights reserved</span>
+		</div>
 	</div>
-	&copy; {today.getFullYear()} ADKINS EVENT CO. All rights reserved.
 </footer>
+
 <style>
 	footer {
-		padding: 1.25em 1em;
-		background: rgba(10, 10, 14, 0.6);
-		backdrop-filter: blur(10px);
-		border-top: 1px solid rgba(var(--gray), 0.18);
-		color: rgb(var(--gray));
-		text-align: center;
-		box-shadow: 0 -10px 30px rgba(0,0,0,0.35), 0 0 40px rgba(35, 55, 255, 0.08) inset;
+		border-top: 1.5px solid var(--line);
+		background: var(--panel);
+		margin-top: 2rem;
 	}
-	.social-links {
+	.foot-grid {
+		display: grid;
+		grid-template-columns: 1.4fr 1fr 1.2fr 1fr;
+		gap: 2rem;
+		padding: 2.5rem 0 2rem;
+		align-items: start;
+	}
+	.foot-brand { display: flex; gap: 0.7rem; align-items: center; }
+	.logo-box {
+		font-family: var(--font-mono);
+		font-weight: 700;
+		font-size: 0.9rem;
+		background: var(--orange);
+		color: #fff;
+		border: 1.5px solid var(--line);
+		border-radius: 4px;
+		padding: 0.3rem 0.5rem;
+	}
+	.foot-name { font-weight: 800; letter-spacing: 0.01em; }
+	.foot-model { font-family: var(--font-mono); font-size: 0.6rem; letter-spacing: 0.12em; color: var(--muted); }
+	.foot-links, .foot-contact, .foot-status { display: flex; flex-direction: column; gap: 0.45rem; }
+	.foot-links .label, .foot-contact .label, .foot-status .label { margin-bottom: 0.3rem; }
+	.foot-links a, .foot-contact a { font-family: var(--font-mono); font-size: 0.82rem; color: var(--ink); }
+	.foot-links a:hover, .foot-contact a:hover { color: var(--orange); }
+	.stat { display: inline-flex; align-items: center; gap: 0.5rem; font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); }
+	.foot-bottom {
 		display: flex;
-		justify-content: center;
-		gap: 1em;
-		margin-bottom: 0.75em;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0.6rem;
+		border-top: 1.5px solid var(--line);
+		padding: 1.1rem 0;
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		color: var(--muted);
 	}
-	.social-links a {
-		text-decoration: none;
-		color: rgb(var(--gray));
+	@media (max-width: 820px) {
+		.foot-grid { grid-template-columns: 1fr 1fr; gap: 1.6rem; }
 	}
-	.social-links a:hover {
-		color: rgb(var(--gray-light));
-		text-shadow: 0 0 10px rgba(35, 55, 255, 0.5);
+	@media (max-width: 480px) {
+		.foot-grid { grid-template-columns: 1fr; }
 	}
 </style>
